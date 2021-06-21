@@ -20,7 +20,8 @@ __title__ = "UiB Dictionary lookup"
 __version__ = "0.0.1"
 __triggers__ = "bm "
 __authors__ = "mrlys"
-__exec_deps__ = ["requests, json, re"]
+__py_deps__ = ["requests", "json", "re"]
+#__exec_deps__ =
 
 iconPath = iconLookup("albert")
 db_file = '.db'
