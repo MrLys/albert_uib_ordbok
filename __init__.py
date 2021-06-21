@@ -16,7 +16,7 @@ import re
 import pickle
 
 __title__ = "UiB Dictionary lookup"
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __triggers__ = "bm "
 __authors__ = "mrlys"
 __py_deps__ = ["requests", "json", "re", "pickle"]
@@ -111,8 +111,6 @@ def handleQuery(query):
                             text='Open in web',
                             url='https://ordbok.uib.no/perl/ordbok.cgi?OPP=%s&ant_bokmaal=5&ant_nynorsk=5&begge=+&ordbok=begge' % to_uib_query(unit))])
             results.append(item)
-
-    results.append(item)
 
     # Api v 0.2
     info(configLocation())
