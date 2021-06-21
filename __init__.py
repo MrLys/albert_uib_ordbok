@@ -10,17 +10,16 @@ extension.
 Synopsis: <trigger> [delay|throw] <query>"""
 from albert import *
 import os
-from time import sleep
 import requests
 import json
 import re
 import pickle
 
 __title__ = "UiB Dictionary lookup"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __triggers__ = "bm "
 __authors__ = "mrlys"
-__py_deps__ = ["requests", "json", "re"]
+__py_deps__ = ["requests", "json", "re", "pickle"]
 #__exec_deps__ =
 
 iconPath = iconLookup("albert")
@@ -110,8 +109,7 @@ def handleQuery(query):
                         urgency=ItemBase.Notification,
                         actions=[UrlAction(
                             text='Open in web',
-                            url='https://ordbok.uib.no/perl/ordbok.cgi?OPP=%s&ant_bokmaal=5&ant_nynorsk=5&bokmaal=+&ordbok=begge' % to_uib_query(unit))])
-            # item.completion = __triggers__ + 'Completion Harharhar'
+                            url='https://ordbok.uib.no/perl/ordbok.cgi?OPP=%s&ant_bokmaal=5&ant_nynorsk=5&begge=+&ordbok=begge' % to_uib_query(unit))])
             results.append(item)
 
     results.append(item)
