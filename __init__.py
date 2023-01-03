@@ -94,7 +94,7 @@ def handleQuery(query):
         res = db[query.string]
     else:
         res = requests.get(
-            'https://ordbok.uib.no/perl/lage_ordliste_liten_nr2000.cgi?spr=begge&query=%s' % query.string)
+                'https://oda.uib.no/opal/prod/api/suggest?=&q=%s&dict=bm,nn&n=20&dform=int&meta=n&include=ei' % query.string)
         json_result = to_json(res.text)
         info(json_result)
         data = json_result['suggestions']
@@ -110,7 +110,7 @@ def handleQuery(query):
                         urgency=ItemBase.Notification,
                         actions=[UrlAction(
                             text='Open in web',
-                            url='https://ordbok.uib.no/perl/ordbok.cgi?OPP=%s&ant_bokmaal=5&ant_nynorsk=5&bokmaal=+&ordbok=begge' % to_uib_query(unit))])
+                            url='https://ordbokene.no/bm,nn/search?q=%s&scope=ei' % to_uib_query(unit))])
             # item.completion = __triggers__ + 'Completion Harharhar'
             results.append(item)
 
